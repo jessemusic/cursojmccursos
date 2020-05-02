@@ -1,13 +1,34 @@
 package com.jmccursos.cursojmc;
 
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class CursojmccursosApplication {
+import com.jmccursos.cursojmc.domain.Categoria;
+import com.jmccursos.cursojmc.repositories.CategoriaRepository;
 
+@SpringBootApplication
+public class CursojmccursosApplication implements  CommandLineRunner{
+	@Autowired
+	private CategoriaRepository categoriaRepository;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(CursojmccursosApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		Categoria cat1 =  new Categoria(null, "Informática");
+		Categoria cat2 = new Categoria(null, "Escritório");
+		
+		categoriaRepository.saveAll(Arrays.asList(cat1,cat2));
+		
+		
+		
+		
 	}
 
 }
