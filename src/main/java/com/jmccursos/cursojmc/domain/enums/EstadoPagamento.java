@@ -6,7 +6,7 @@ public enum EstadoPagamento {
 	QUITADO(2, "Quitado"),
 	CANCELADO(3, "Cancelado");
 	
-	private int cod;
+	private Integer cod;
 	private String descricao;
 	
 	private EstadoPagamento( int cod, String descricao) {
@@ -15,7 +15,7 @@ public enum EstadoPagamento {
 				
 	}
 	
-	public int getCod() {
+	public Integer getCod() {
 		return cod;
 	}
 	
